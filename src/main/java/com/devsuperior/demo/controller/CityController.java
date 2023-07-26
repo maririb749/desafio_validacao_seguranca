@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,6 +15,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.devsuperior.demo.dto.CityDTO;
 import com.devsuperior.demo.service.CityService;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping(value = "/cities")
@@ -27,9 +30,10 @@ public class CityController {
         List<CityDTO> list = cityService.findAll();
         return ResponseEntity.ok().body(list);
     }
-
+    
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @PostMapping
-    public ResponseEntity<CityDTO> insert (@RequestBody CityDTO dto) {
+    public ResponseEntity<CityDTO> insert ( @Valid @RequestBody CityDTO dto) {
         dto = cityService.insert(dto);
         URI uri = 
       ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();

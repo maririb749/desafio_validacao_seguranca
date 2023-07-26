@@ -1,10 +1,16 @@
 package com.devsuperior.demo.dto;
 
+import java.io.Serializable;
+
 import com.devsuperior.demo.entities.City;
 
-public class CityDTO {
+import jakarta.validation.constraints.NotBlank;
+
+public class CityDTO implements Serializable{
+	private static final long serialVersionUID = 1L;
 	
 	private Long id;
+	@NotBlank(message = "Campo requerido")
 	private String name;
 	
 	public CityDTO() {
