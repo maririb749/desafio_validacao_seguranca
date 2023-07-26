@@ -52,3 +52,44 @@
      <li>Cidade não pode ser nula.</li>
    </ul>
 </ul>
+
+###
+
+###  Critérios de correção:
+
+###
+
+<ul>
+  <ul>
+    <li>POST /events deve retornar 401 Unauthorized para usuário não logado</li>
+    <li>POST /events deve retornar 201 Created para CLIENT logado e dados corretos</li>
+    <li>POST /events deve retornar 201 Created para ADMIN logado e dados corretos</li>
+     <li>POST /events deve retornar 422 Unproccessable Entity para ADMIN logado e nome em branco</li>
+      <li>POST /events deve retornar 422 Unproccessable Entity para ADMIN logado e data no passado</li>
+       <li>POST /events deve retornar 422 Unproccessable Entity para ADMIN logado e cidade nula</li>
+       <li>GET /events deve retornar 200 Ok com página de recursos</li>
+       <li>POST /cities deve retornar 401 Unauthorized para usuário não logado</li>
+       <li>POST /cities deve retornar 403 Forbidden para CLIENT logado</li>
+        <li>POST /cities deve retornar 201 Created para ADMIN logado e dados corretos</li>
+          <li>POST /cities deve retornar 422 Unprocessable Entity para ADMIN logado e nome em branco</li>
+           <li>GET /cities deve retornar 200 Ok com todos recursos ordenados por nome</li>
+
+   </ul>
+</ul>
+
+###
+
+### O que aprendi com esta atividade:
+
+<ul>
+  <ul>
+    <li>Desenvolvimento TDD de API Rest com Java e Spring Boot.</li>
+    <li>Implementação de segurança com Spring Security e OAuth2.</li>
+     <li>Controle de acesso por rotas e perfis de usuário.</li>
+    <li>Validação de dados com Bean Validation.</li>
+   </ul>
+</ul>
+
+
+
+
